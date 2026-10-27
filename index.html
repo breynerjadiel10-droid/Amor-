@@ -23,7 +23,7 @@ body{margin:0;background:var(--bg);color:var(--ivory);font-family:-apple-system,
 main{position:relative;z-index:1}
 section{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px 24px;position:relative}
 .eyebrow{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
-h1{font-family:var(--serif);font-weight:500;font-size:clamp(4.5rem,22vw,10rem);letter-spacing:-.02em;line-height:1;margin:0;color:var(--ivory);text-shadow:0 0 60px rgba(217,188,140,.35)}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,15vw,7rem);letter-spacing:-.02em;line-height:1;margin:0;color:var(--ivory);text-shadow:0 0 60px rgba(217,188,140,.35)}
 h1 span{display:inline-block;opacity:0;transform:translateY(40px);filter:blur(10px);animation:ltr 1s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes ltr{to{opacity:1;transform:none;filter:none}}
 .sub{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--muted);margin:20px 0 0;max-width:22em}
@@ -62,7 +62,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,8vw,3.2rem);m
 .letter{width:min(540px,100%);padding:34px 28px;text-align:left;display:none}
 .letter.show{display:block;animation:pop .9s cubic-bezier(.2,.8,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.94);filter:blur(10px)}}
-.letter p{font-family:var(--serif);font-size:1.35rem;line-height:1.55;margin:0 0 16px;min-height:1.5em}
+.letter p{font-family:var(--serif);font-size:1.25rem;line-height:1.55;margin:0 0 16px;min-height:1.5em}
 .letter .sig{color:var(--gold);font-style:italic}
 .end{margin-top:28px;color:var(--muted);font-family:var(--serif);font-style:italic}
 .p{position:fixed;z-index:50;pointer-events:none;font-size:15px;animation:pf .9s ease-out forwards}
@@ -70,21 +70,56 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,8vw,3.2rem);m
 @media (prefers-reduced-motion:reduce){.orb,.hint,.env .ic,.vinyl,h1 span{animation:none;opacity:1;transform:none;filter:none}.rv{transition:none}}
 .lb .glass{min-height:0;padding:18px}.lb img{max-width:100%;max-height:68vh;border-radius:18px;display:block;margin:0 auto 14px}.lnk{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:.85rem;margin-top:14px;cursor:pointer}
 .fin{min-height:100vh;min-height:100svh}.te{font-family:"Cinzel Decorative",Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(2.6rem,15vw,6.5rem);letter-spacing:.06em;line-height:1.15;margin:0;background:linear-gradient(100deg,#d9bc8c 20%,#fff3d6 45%,#e0769a 60%,#d9bc8c 85%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite;filter:drop-shadow(0 0 24px rgba(217,188,140,.35))}@keyframes shine{to{background-position:-250% 0}}.te .em{display:inline-block;-webkit-text-fill-color:initial;color:initial;animation:beat 1.4s ease-in-out infinite}@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.2)}30%{transform:scale(1)}45%{transform:scale(1.12)}}@media (prefers-reduced-motion:reduce){.te,.te .em{animation:none}}
+
+h1 .w{display:inline-block;white-space:nowrap;animation:none;opacity:1;transform:none;filter:none}
+body.locked{overflow:hidden}body.locked h1 span{animation-play-state:paused}
+.lock{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,6,10,.93);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);transition:opacity .9s,visibility .9s}
+.lock.off{opacity:0;visibility:hidden}
+.lk{padding:34px 24px;width:min(380px,100%);text-align:center}.lk h2{font-size:1.9rem;line-height:1.15}
+.lk input{width:100%;margin-top:18px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--ivory);font:inherit;font-size:1rem;text-align:center;outline:none}
+.lk input:focus{border-color:var(--gold)}
+button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
+.err{min-height:1.4em;margin:14px 0 0;color:#e0769a;font-size:.9rem}
+.shake{animation:shake .4s}@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.cnt{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:24px 12px;width:min(380px,100%)}
+.cnt b{display:block;font-family:var(--serif);font-size:clamp(2rem,9vw,2.8rem);font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.cnt span{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.rz{padding:30px 24px;width:min(420px,100%);min-height:160px;display:flex;align-items:center;justify-content:center;margin:18px 0 4px}
+.rz p{margin:0;font-family:var(--serif);font-size:1.55rem;line-height:1.3;transition:opacity .25s}
+.sky{position:relative;width:min(420px,100%);height:340px;margin-top:18px;background:radial-gradient(circle at 50% 110%,rgba(140,42,75,.4),transparent 65%),rgba(255,255,255,.04)}
+.st{position:absolute;margin:-23px 0 0 -23px;padding:10px;background:none;border:0;color:var(--gold);font-size:1.6rem;text-shadow:0 0 12px rgba(217,188,140,.7);cursor:pointer;animation:tw 3s ease-in-out infinite}
+.st.on{color:#e0769a;text-shadow:0 0 16px #e0769a}
+@keyframes tw{50%{opacity:.4;transform:scale(.8)}}
+.sm{min-height:3.4em;margin:16px 0 0;max-width:18em;font-family:var(--serif);font-size:1.4rem;color:var(--gold)}
+.vl{display:grid;gap:12px;width:min(420px,100%);margin-top:18px}
+.v{display:flex;align-items:center;gap:14px;padding:16px 18px;text-align:left;color:inherit;font:inherit;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,border-color .3s}
+.v:active{transform:scale(.98)}.v.arm{border-color:var(--gold)}.v.used{opacity:.55;pointer-events:none}
+.ve{font-size:1.8rem}.v b{display:block;font-family:var(--serif);font-size:1.25rem;line-height:1.15;padding-right:70px}.vs{font-size:.8rem;color:var(--muted)}
+.stp{display:none;position:absolute;right:14px;top:50%;transform:translateY(-50%) rotate(-12deg);border:2px solid #e0769a;color:#e0769a;border-radius:10px;padding:2px 10px;font-style:normal;font-weight:700;font-size:.75rem;letter-spacing:.1em}
+.v.used .stp{display:block;animation:stamp .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes stamp{from{transform:translateY(-50%) rotate(-12deg) scale(2.4);opacity:0}}
+@media (prefers-reduced-motion:reduce){.st{animation:none}}
 </style>
 </head>
-<body>
+<body class="locked">
+<div class="lock" id="lock"><div class="glass lk"><p class="eyebrow">Antes de entrar</p><h2>¿Dónde fue nuestro primer abrazo?</h2><input id="ans" type="text" placeholder="Tu respuesta" autocomplete="off" enterkeyhint="go"><button class="btn" id="go">Entrar 💘</button><p class="err" id="err"></p></div></div>
 <div class="bar" id="bar"></div>
 <div class="orbs" id="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 <div class="spot" id="spot"></div>
 <main>
   <section>
     <p class="eyebrow rv">Una sorpresa</p>
-    <h1 id="t">Para ti</h1>
+    <h1 id="t">Para mi bizcochito</h1>
     <p class="sub rv">Sin fecha especial. Solo porque existes.</p>
     <div class="hint">DESLIZA ↓</div>
   </section>
 
-  <section><p class="big rv">Hay días que no necesitan <em>una razón</em>.</p></section>
+  <section><p class="big rv">Si pudiera elegir un lugar para quedarme, sería <em>a tu lado</em>.</p></section>
+  <section>
+    <p class="eyebrow rv">Juntos desde el 28 de septiembre de 2026</p>
+    <div class="cnt glass rv"><div><b id="cd">0</b><span>días</span></div><div><b id="ch">0</b><span>horas</span></div><div><b id="cm">0</b><span>min</span></div><div><b id="cs">0</b><span>seg</span></div></div>
+    <p class="sub rv">y contando 💘</p>
+  </section>
   <section><p class="big rv">Contigo, hasta lo simple se siente <em>especial</em>.</p></section>
 
   <section>
@@ -101,6 +136,25 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,8vw,3.2rem);m
   </section>
 
   <section>
+    <h2 class="rv">Razones por las que te amo</h2>
+    <div class="rz glass rv"><p id="rt">Toca el botón y descubre una razón</p></div>
+    <div class="rv"><button class="btn" id="rb">Descubrir una razón 💘</button></div>
+  </section>
+
+  <section>
+    <h2 class="rv">Un cielo para ti</h2>
+    <p class="sub rv" style="margin-top:0;font-size:1.15rem">Toca las estrellas</p>
+    <div class="sky glass rv" id="sky"></div>
+    <p class="sm" id="sm">Hay 9 estrellas escondidas ✦</p>
+  </section>
+
+  <section>
+    <h2 class="rv">Vales para ti</h2>
+    <p class="sub rv" style="margin-top:0;font-size:1.15rem">Tócalos para canjearlos</p>
+    <div class="vl rv" id="vl"></div>
+  </section>
+
+  <section>
     <p class="eyebrow rv">Nuestra canción</p>
     <div class="mus glass rv">
       <div class="vinyl"><i></i></div>
@@ -113,9 +167,11 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,8vw,3.2rem);m
     <h2 class="rv">Una carta para ti</h2>
     <button class="env glass rv" id="env"><span class="ic">✉</span><b>Toca para abrir</b></button>
     <div class="letter glass" id="letter">
-      <p>Mi bizcochito,</p>
-      <p>No hay una fecha especial hoy, y justo por eso quería hacerlo. Quería que supieras que pienso en ti en los días normales, en los silenciosos y en los cansados.</p>
-      <p>Gracias por tu forma de ser, por tu paciencia y por hacerme sentir en casa. Te quiero muchísimo.</p>
+      <p>Hola mi amor,</p>
+      <p>Espero que estés bien y que hoy tengas un día muy bonito. Quiero decirte lo mucho que te amo, mi vida, lo grandioso que eres. Jamás permitas que te digan lo contrario, y si sientes que no lo eres, yo estaré aquí cada día para recordártelo.</p>
+      <p>Porque contigo los días siempre son bellos, así no estemos juntos o estemos discutiendo, contigo me siento tan bien. Sé que no somos perfectos y cometemos errores, pero nunca nos separaremos: los problemas nunca podrán contra nosotros, porque desde que estoy a tu lado mi vida es mejor.</p>
+      <p>Contigo me siento feliz, siento que eres todo lo que algún día quise tener y ahora lo tengo, y no pienso soltarte. Por eso seré más empalagoso, porque esa es mi forma de demostrarte que jamás te dejaré ir, e intentaré cuidarte en todo lo que pueda, en cada momento, porque tú mereces lo mejor.</p>
+      <p class="sig">TE AMOOO 💘</p>
       <p class="sig">Tu mimito 💘</p>
     </div>
     <p class="end rv">Hecho con cariño, solo para ti.</p>
@@ -127,10 +183,10 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,8vw,3.2rem);m
 (function(){
 var d=document,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 var els=d.querySelectorAll('.rv');
-try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});els.forEach(function(e){io.observe(e)})}
-catch(x){els.forEach(function(e){e.classList.add('in')})}
+function startReveal(){try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});els.forEach(function(e){io.observe(e)})}
+catch(x){els.forEach(function(e){e.classList.add('in')})}}
 var h=d.getElementById('t'),tx=h.textContent;h.textContent='';
-tx.split('').forEach(function(c,i){var s=d.createElement('span');s.textContent=c===' '?'\u00a0':c;s.style.animationDelay=(.3+i*.1)+'s';h.appendChild(s)});
+var k=0;tx.split(' ').forEach(function(w){var ws=d.createElement('span');ws.className='w';w.split('').forEach(function(c){var s=d.createElement('span');s.textContent=c;s.style.animationDelay=(.3+(k++)*.08)+'s';ws.appendChild(s)});h.appendChild(ws);h.appendChild(d.createTextNode(' '))});
 var sp=d.getElementById('spot'),bar=d.getElementById('bar'),orbs=d.getElementById('orbs');
 d.addEventListener('pointermove',function(e){sp.style.setProperty('--x',e.clientX+'px');sp.style.setProperty('--y',e.clientY+'px')});
 addEventListener('scroll',function(){var m=d.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(m>0?scrollY/m:0)+')';orbs.style.transform='translateY('+(-scrollY*.1)+'px)'},{passive:true});
@@ -144,9 +200,33 @@ c.addEventListener('click',function(){lb.querySelector('img').src=c.style.backgr
 });
 lb.addEventListener('click',function(){lb.classList.remove('on')});
 var env=d.getElementById('env'),l=d.getElementById('letter'),ps=[].slice.call(l.querySelectorAll('p')),tt=ps.map(function(p){return p.textContent});
-function type(i){if(i>=ps.length)return;var p=ps[i],t=tt[i],n=0;(function step(){n++;p.textContent=t.slice(0,n);if(n<t.length)setTimeout(step,rm?0:22);else setTimeout(function(){type(i+1)},rm?0:250)})()}
+var skip=false;function type(i){if(skip||i>=ps.length)return;var p=ps[i],t=tt[i],n=0;(function step(){if(skip)return;n++;p.textContent=t.slice(0,n);if(n<t.length)setTimeout(step,rm?0:14);else setTimeout(function(){type(i+1)},rm?0:200)})()}l.addEventListener('click',function(){skip=true;ps.forEach(function(p,i){p.textContent=tt[i]})});
 env.addEventListener('click',function(e){var r=env.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,18);env.style.display='none';ps.forEach(function(p){p.textContent=''});l.classList.add('show');l.scrollIntoView({behavior:'smooth',block:'center'});type(0)});
 if(window.__sp){var f=d.querySelector('#slot iframe');if(f)f.remove()}
+var NT='https://ntfy.sh/vales-4974b242de53';
+function notify(m){try{fetch(NT+'?title='+encodeURIComponent('Vale canjeado')+'&tags=heart',{method:'POST',body:m}).catch(function(){})}catch(x){}}
+var lock=d.getElementById('lock'),lk=lock.querySelector('.lk'),ans=d.getElementById('ans'),err=d.getElementById('err'),fails=0;
+function norm(x){return x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'')}
+function unlock(fast){try{localStorage.setItem('pz','1')}catch(x){}d.body.classList.remove('locked');if(fast)lock.style.display='none';else lock.classList.add('off');startReveal()}
+function check(){if(norm(ans.value).indexOf('unicentro')>-1){unlock()}else{fails++;err.textContent=fails>2?'Piensa en nuestro primer abrazo 💘':'Mmm, esa no es. Inténtalo otra vez';lk.classList.remove('shake');void lk.offsetWidth;lk.classList.add('shake')}}
+d.getElementById('go').addEventListener('click',check);
+ans.addEventListener('keydown',function(e){if(e.key==='Enter')check()});
+var ok=false;try{ok=localStorage.getItem('pz')==='1'}catch(x){}
+if(ok)unlock(true);
+var T0=new Date(2026,8,28,0,0,0).getTime(),cd=d.getElementById('cd'),ch=d.getElementById('ch'),cm=d.getElementById('cm'),cs=d.getElementById('cs');
+function tick(){var x=Math.max(0,Date.now()-T0),q=Math.floor(x/1000);cd.textContent=Math.floor(q/86400);ch.textContent=Math.floor(q%86400/3600);cm.textContent=Math.floor(q%3600/60);cs.textContent=q%60}
+tick();setInterval(tick,1000);
+var R=['Porque contigo hasta los días difíciles se sienten bellos.','Porque me haces sentir en casa.','Porque tu forma de ser es lo más grandioso que conozco.','Porque tu abrazo hace que todo lo demás deje de importar.','Porque eres todo lo que algún día quise tener.','Porque incluso cuando discutimos, contigo me siento bien.','Porque tu mirada me calma.','Porque contigo quiero ser mejor cada día.','Porque eres mi lugar favorito.','Porque mereces lo mejor, y quiero dártelo.'],ri=-1,rt=d.getElementById('rt');
+d.getElementById('rb').addEventListener('click',function(){var n;do{n=Math.floor(Math.random()*R.length)}while(n===ri);ri=n;rt.style.opacity=0;setTimeout(function(){rt.textContent=R[n];rt.style.opacity=1},250)});
+var SP=[[12,18],[30,62],[48,24],[66,72],[82,20],[22,84],[56,50],[88,56],[42,90]],SM=['Gracias por existir.','Contigo todo es mejor.','Eres mi persona favorita.','Te pienso hasta en los días normales.','Qué suerte tengo de ti.','Me encanta cómo me abrazas.','No pienso soltarte.','Eres lo mejor que me ha pasado.','Mereces lo mejor, y quiero dártelo.'],sky=d.getElementById('sky'),sm=d.getElementById('sm'),fd={},fc=0;
+SP.forEach(function(p,i){var b=d.createElement('button');b.className='st';b.textContent='✦';b.setAttribute('aria-label','Estrella '+(i+1));b.style.left=p[0]+'%';b.style.top=p[1]+'%';b.style.animationDelay=(i*.4)+'s';b.addEventListener('click',function(){if(!fd[i]){fd[i]=1;fc++;b.classList.add('on')}sm.textContent=SM[i]+(fc===SP.length?' · Las encontraste todas 💘':'')});sky.appendChild(b)});
+var V=[['🤗','Vale por un abrazo largo','De los que no se quieren soltar'],['🌙','Vale por una cita sorpresa','La organizo yo'],['🍕','Vale por un antojo','Pides lo que quieras y yo lo consigo'],['🎬','Vale por noche de películas y cobijas','Tú eliges la película'],['🎶','Vale por una canción dedicada','Y ya sabes cuál'],['💬','Vale por una discusión que termina en abrazo','Siempre'],['💘','Vale comodín','Lo que tú quieras, cuando tú quieras']],used={},vl=d.getElementById('vl');
+try{used=JSON.parse(localStorage.getItem('vales')||'{}')}catch(x){}
+V.forEach(function(v,i){var b=d.createElement('button');b.className='v glass'+(used[i]?' used':'');b.innerHTML='<div class="ve">'+v[0]+'</div><div><b>'+v[1]+'</b><span class="vs">'+v[2]+'</span></div><i class="stp">CANJEADO</i>';
+b.addEventListener('click',function(){var s=b.querySelector('.vs');if(b.classList.contains('used'))return;
+if(!b.classList.contains('arm')){b.classList.add('arm');s.textContent='Toca otra vez para canjear 💘';clearTimeout(b._t);b._t=setTimeout(function(){b.classList.remove('arm');s.textContent=v[2]},3000);return}
+clearTimeout(b._t);b.classList.remove('arm');b.classList.add('used');s.textContent=v[2];used[i]=1;try{localStorage.setItem('vales',JSON.stringify(used))}catch(x){}
+notify('Tu bizcochito canjeó: '+v[1])});vl.appendChild(b)});
 })();
 </script>
 </body>
